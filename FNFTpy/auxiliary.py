@@ -84,7 +84,7 @@ def get_fnft_version():
 
     """
     suffix_maxlen = 8  # defined in  FNFT/include/fnft_config.h.in
-    fnft_clib = ctypes.CDLL(get_lib_path(), winmode=0)
+    fnft_clib = ctypes.CDLL(get_lib_path())
     clib_versionf = fnft_clib.fnft_version
     clib_versionf.restype = ctypes_int
     version_major = ctypes_uint(0)
