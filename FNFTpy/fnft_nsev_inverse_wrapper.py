@@ -155,7 +155,7 @@ def nsev_inverse_wrapper(M, contspec, Xi1, Xi2, K, bound_states,
         * q : time field resulting from inverse transform
         * options : options for nsev_inverse as NsevInverseOptionsStruct
     """
-    fnft_clib = ctypes.CDLL(get_lib_path(), winmode = get_winmode_param())
+    fnft_clib = ctypes.CDLL(get_lib_path())
     clib_nsev_inverse_func = fnft_clib.fnft_nsev_inverse
     clib_nsev_inverse_func.restype = ctypes_int
     nsev_M = ctypes_uint(M)
