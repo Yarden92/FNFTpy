@@ -48,9 +48,11 @@ def get_lib_path():
     """
     #libstr = "/usr/local/lib/libfnft.so.0.2.2-dev"
 #     libstr = "/usr/local/lib/libfnft.so.0.4.1"
-    libstr = "dependencies/FNFT/lib/libfnft.so.0.4.1"
+    libstr = "../lib/FNFT-mac/lib/libfnft.dylib"
+
 
     return libstr
+
 
 def get_winmode_param():
     """
@@ -65,7 +67,7 @@ def get_winmode_param():
     Returns:
         winmode parameter : 0    (change manually to either None or some int if you experience problems)
     """
-    #return None
+    # return None
     return 0
 
 
@@ -84,7 +86,7 @@ def get_fnft_version():
 
     """
     suffix_maxlen = 8  # defined in  FNFT/include/fnft_config.h.in
-    fnft_clib = ctypes.CDLL(get_lib_path())
+    fnft_clib = ctypes.CDLL(get_lib_path(), winmode=0)
     clib_versionf = fnft_clib.fnft_version
     clib_versionf.restype = ctypes_int
     version_major = ctypes_uint(0)
